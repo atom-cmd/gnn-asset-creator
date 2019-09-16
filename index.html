@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>GNN Asset Creator</title>
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico'/>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script>
+    var __safeareas = false
+    var __icon = true
+    var __thumbsafeareas = false
+    var __thumbicon = true
+    function __extractFilename(path) {
+      if (path.substr(0, 12) == "C:\\fakepath\\")
+        return path.substr(12); // modern browser
+      var x;
+      x = path.lastIndexOf('/');
+      if (x >= 0) // Unix-based path
+        return path.substr(x+1);
+      x = path.lastIndexOf('\\');
+      if (x >= 0) // Windows-based path
+        return path.substr(x+1);
+      return path; // just the filename
+    }
+  </script>
+</head>
+<body>
+  <nav class="indigo darken-4 lighten-2 nav-extended " role="navigation">
+    <div class="nav-wrapper container">
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <a id="logo-container" href="#" class="brand-logo">
+        <img class="responsive-img" src="img/logo.png">
+      </a>
+      <ul class="right hide-on-med-and-down">
+        <li><a target="_blank" class="btn-large waves-effect waves-light indigo darken-3" href="https://www.youtube.com/channel/UCLZVhyohKJzS_g-gzFKD-Sw">YouTube Link</a></li>
+      </ul>
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><a class="active" href="#section1">Channel Art</a></li>
+        <li class="tab"><a href="#section2">Thumbnails</a></li>
+        <li class="tab"><a href="#section3">Information</a></li>
+      </ul>
+    </div>
+      <ul id="nav-mobile" class="sidenav">
+        <li><a target="_blank" class="btn-large waves-effect waves-light indigo darken-4" href="https://www.youtube.com/channel/UCLZVhyohKJzS_g-gzFKD-Sw">YouTube Link</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div id="section1" class="col s12">
+    <br>
+    <div class="col s12 m6">
+        <div class="container">
+            <div id="" class="card indigo darken-4">
+                <div class="card-content white-text">
+                    <span class="card-title">Options</span>
+                    <ls id="options">
+                      <div class="col">
+                          <form>
+                            <p>
+                              <label>
+                                <input id="safearea_check" type="checkbox" class="white filled-in" onclick="__safeareas = !__safeareas">
+                                <span class="white-text">Render with safe areas</span>
+                                <!--<div class="input-field col s6">
+                                  <input id="title" value="SPRING VALLEY HIGH SCHOOL" type="text" class="validate white-text">
+                                  <label for="title">Header</label>
+                                </div>-->
+                              </label>
+                            </p>
+                          </form>
+                          <form>
+                              <p>
+                                <label>
+                                  <input id="icon_check" type="checkbox" checked class="white filled-in" onclick="__icon = !__icon">
+                                  <span class="white-text">Render with bottom-right icon</span>
+                                  <!--<div class="input-field col s6">
+                                    <input id="title" value="SPRING VALLEY HIGH SCHOOL" type="text" class="validate white-text">
+                                    <label for="title">Header</label>
+                                  </div>-->
+                                </label>
+                              </p>
+                            </form>
+                            <form>
+                                <p>
+                                  <label>
+                                    <div class="input-field col s6">
+                                      <input id="multiline" value="35" type="number" class="validate white-text">
+                                      <label for="multiline">Body multiline spacing</label>
+                                    </div>
+                                  </label>
+                                </p>
+                              </form>
+                          <div class="input-field col s6">
+                            <textarea id="news" class="materialize-textarea white-text">News summary for the week of Sept. 9th - Sept. 13th:
+- Tickets for the Homecoming dance are now $25 this week. Card and cash payments can be made at the banker.
+- The Homecoming dance tickets will increase on a weekly basis until the night of the dance.
+- Congratulations to the SVHS Girl's Tennis Team for beating Green Valley!
+- Speech & Debate has completed their first tournament. Way to go!
+- Improv Club has started in the Theatre, Wednesdays at 1:30-3:00.
+- Sign up for your AP exam in Room 815 and pay by Sept. 27th.</textarea>
+                            <label for="news">Body</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="bottom" value="3750 Buffalo Drive, Las Vegas, NV 89147" type="text" class="validate white-text">
+                            <label for="bottom">Footer</label>
+                          </div>
+                          <!--
+                          <form action="#">
+                            <div class="file-field input-field">
+                                <div class="btn waves-effect waves-light indigo darken-2" onclick="
+                                    var filePaths = require('electron').remote.dialog.showOpenDialog({
+                                            title:'Select Output Directory:',
+                                            defaultPath:__dirname,
+                                            filters:[],
+                                            properties: ['openDirectory'] 
+                                        })
+                                    if(filePaths) {
+                                        document.querySelector('#outro').value=filePaths[0]
+                                        var {ipcRenderer} = require('electron')
+                                        ipcRenderer.send('outro:set',filePaths[0]);
+                                    }
+                                ">
+                                <span>Output</span>
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input id="outro" class="file-path validate white-text" value="PLACEHOLDER" type="text">
+                                    <script>
+                                        document.querySelector("#outro").value = __dirname+"/resources"
+                                    </script>
+                                </div>
+                            </div>
+                        </form>-->
+                      </div>
+                    </ls>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div id="" class="card indigo darken-4">
+                    <div class="card-content white-text">
+                        <span class="card-title">Backdrop</span>
+                        <ls id="sourceclips">
+                          <div class="col">
+                            <div class="material-placeholder">
+                              <img id="backdropname" class="materialboxed" width="200" src="../resources/artwork1.png">
+                            </div>
+                          </div>
+                        </ls>
+                        <br>
+                        <span class="white-text">Backdrop must be 2560x1440 and must be in the resources/ directory.</span>
+                    </div>
+                    <div class="card-action indigo darken-4">
+                            <a href="#transi" onclick="
+                            var {ipcRenderer} = require('electron');
+                            const ul = document.querySelector('#sourceclips');
+                            require('electron').remote.dialog.showOpenDialog(
+                                {
+                                    title:'Select Backdrop: (MUST BE IN RESOURCES/)',
+                                    defaultPath:__dirname,
+                                    filters:[
+                                        { name: 'Portable Network Graphics', extensions: ['png'] }
+                                    ],
+                                    properties: ['openFile']
+                                },function(filePaths) {
+                                    if(filePaths) {
+                                      for(var i=0;i < filePaths.length;i++) {
+                                          const divider = document.createElement('div')
+                                          divider.className = 'col'
+                                          const li = document.createElement('img');
+                                          li.className = 'materialboxed'
+                                          li.width = '200'
+                                          li.src = 'resources/'+__extractFilename(filePaths[i]);
+                                          li.id = 'backdropname'
+                                          //const btn = document.createElement('div')
+                                          divider.appendChild(li)
+                                          ul.innerHTML = '';
+                                          ul.appendChild(divider)
+                                          M.Materialbox.init(li, {});
+                                      }
+                                    }
+                                })
+                        ">Replace Backdrop</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div id="" class="card indigo darken-4">
+                    <div class="card-content white-text">
+                        <span class="card-title">Bottom-Right Icon</span>
+                        <ls id="bottom-right-icon">
+                          <div class="col">
+                            <div class="material-placeholder">
+                              <img id="iconname" class="materialboxed" width="200" src="../resources/icon.png">
+                            </div>
+                          </div>
+                        </ls>
+                        <br>
+                        <span class="white-text">Icon must be 392x162 and must be in the resources/ directory.</span>
+                    </div>
+                    <div class="card-action indigo darken-4">
+                            <a href="#transi" onclick="
+                            var {ipcRenderer} = require('electron');
+                            const ul = document.querySelector('#bottom-right-icon');
+                            require('electron').remote.dialog.showOpenDialog(
+                                {
+                                    title:'Select Icon: (MUST BE IN RESOURCES/)',
+                                    defaultPath:__dirname,
+                                    filters:[
+                                        { name: 'Portable Network Graphics', extensions: ['png'] }
+                                    ],
+                                    properties: ['openFile']
+                                },function(filePaths) {
+                                    if(filePaths) {
+                                        for(var i=0;i < filePaths.length;i++) {
+                                            const divider = document.createElement('div')
+                                            divider.className = 'col'
+                                            const li = document.createElement('img');
+                                            li.className = 'materialboxed'
+                                            li.width = '200'
+                                            li.src = 'resources/'+__extractFilename(filePaths[i]);
+                                            li.id = 'iconname'
+                                            //const btn = document.createElement('div')
+                                            divider.appendChild(li)
+                                            ul.innerHTML = '';
+                                            ul.appendChild(divider)
+                                            M.Materialbox.init(li, {});
+                                        }
+                                    }
+                                })
+                        ">Replace Icon</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row center">
+                <a id="setuprefer1" href="#" id="download-button" class="btn-large waves-effect waves-light indigo darken-4" onclick="
+                  M.toast({html: 'Rendering channel art...'})
+                  var Jimp = require('jimp');
+                  Jimp.read('resources/'+__extractFilename(document.getElementById('backdropname').src)).then(image => {
+                    image.resize(2560, 1440) // resize
+                    Jimp.read('resources/safearea.png').then(safe => {
+                      if(__safeareas == true)
+                        image.composite(safe,0,0)
+                      Jimp.read('resources/'+__extractFilename(document.getElementById('iconname').src)).then(icon => {
+                        if(__icon == true)
+                          image.composite(icon,1602,753)
+                        Jimp.loadFont('resources/fnt/ArialRoundedMTBold-107.fnt').then(font1 => {
+                          console.log(font1)
+                          image.print(
+                            font1,
+                            562,
+                            505,
+                            {
+                              text: 'SPRING VALLEY HIGH SCHOOL',
+                              alignmentX: Jimp.HORIZONTAL_ALIGN_LEFT,
+                              alignmentY: Jimp.VERTICAL_ALIGN_TOP
+                            },
+                            2560,
+                            1440
+                          )
+                          Jimp.loadFont('resources/fnt/ArialRoundedMTBold-45.fnt').then(font2 => {
+                            console.log(font2)
+                            image.print(
+                              font2,
+                              565,
+                              878,
+                              {
+                                text: document.getElementById('bottom').value,
+                                alignmentX: Jimp.HORIZONTAL_ALIGN_LEFT,
+                                alignmentY: Jimp.VERTICAL_ALIGN_TOP
+                              },
+                              2560,
+                              1440
+                            )
+                            Jimp.loadFont('resources/fnt/ArialRoundedMTBold-30.fnt').then(font3 => {
+                              console.log(font3)
+                              var news = document.getElementById('news').value
+                              var newspool = []
+                              var y = 576
+                              if (!/\n$/.test(news)) news += '\n'
+                              newspool = news.split('\n')
+                              for(i=0;i<newspool.length;i++) {
+                                console.log(newspool[i])
+                                y = y+parseInt(document.getElementById('multiline').value)
+                                image.print(
+                                  font3,
+                                  565,
+                                  y,
+                                  {
+                                    text: newspool[i],
+                                    alignmentX: Jimp.HORIZONTAL_ALIGN_LEFT,
+                                    alignmentY: Jimp.VERTICAL_ALIGN_TOP
+                                  },
+                                  2560,
+                                  1440
+                                )
+                              }
+                              image.write('resources/rendered/channelart.png'); // save
+                              M.toast({html: 'Writing to resources/rendered/channelart.png...'})
+                              setTimeout(function(){M.toast({html: 'Done creating channel art!'})},10000)
+                            }).catch(err => {
+                            M.toast({html: 'An error has occured!'})
+                            console.error(err);
+                            });
+                          }).catch(err => {
+                            M.toast({html: 'An error has occured!'})
+                            console.error(err);
+                          });
+                        }).catch(err => {
+                          M.toast({html: 'An error has occured!'})
+                          console.error(err);
+                        });
+                      }).catch(err => {
+                        M.toast({html: 'An error has occured!'})
+                        console.error(err);
+                      });
+                    }).catch(err => {
+                      M.toast({html: 'An error has occured!'})
+                      console.error(err);
+                    });
+                  }).catch(err => {
+                    M.toast({html: 'An error has occured!'})
+                    console.error(err);
+                  });
+                ">Render</a>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div id="section2" class="col s12">
+      <br>
+      <div class="col s12 m6">
+          <div class="container">
+              <div id="" class="card indigo darken-4">
+                  <div class="card-content white-text">
+                      <span class="card-title">Options</span>
+                      <ls id="options">
+                        <div class="col">
+                            <form>
+                              <p>
+                                <label>
+                                  <input id="safearea_thumb_check" type="checkbox" class="white filled-in" onclick="__thumbsafeareas = !__thumbsafeareas">
+                                  <span class="white-text">Render with safe areas</span>
+                                </label>
+                              </p>
+                            </form>
+                            <form>
+                                <p>
+                                  <label>
+                                    <input id="icon_thumb_check" type="checkbox" checked class="white filled-in" onclick="__thumbicon = !__thumbicon">
+                                    <span class="white-text">Render with icon</span>
+                                  </label>
+                                </p>
+                              </form>
+                            <div class="input-field col s6">
+                                <input id="thumbbody" value="9/16/2019" type="text" class="validate white-text">
+                              <label for="thumbbody">Date</label>
+                          </div>
+                        </div>
+                      </ls>
+                  </div>
+              </div>
+              <div class="col s12 m6">
+                  <div id="" class="card indigo darken-4">
+                      <div class="card-content white-text">
+                          <span class="card-title">Backdrop</span>
+                          <ls id="thumbsourceclips">
+                            <div class="col">
+                              <div class="material-placeholder">
+                                <img id="thumb_backdropname" class="materialboxed" width="200" src="../resources/thumb_artwork1.png">
+                              </div>
+                            </div>
+                          </ls>
+                          <br>
+                          <span class="white-text">Backdrop must be 1280x720 and must be in the resources/ directory.</span>
+                      </div>
+                      <div class="card-action indigo darken-4">
+                              <a href="#transi" onclick="
+                              var {ipcRenderer} = require('electron');
+                              const ul = document.querySelector('#thumb_sourceclips');
+                              require('electron').remote.dialog.showOpenDialog(
+                                  {
+                                      title:'Select Backdrop: (MUST BE IN RESOURCES/)',
+                                      defaultPath:__dirname,
+                                      filters:[
+                                          { name: 'Portable Network Graphics', extensions: ['png'] }
+                                      ],
+                                      properties: ['openFile']
+                                  },function(filePaths) {
+                                      if(filePaths) {
+                                        for(var i=0;i < filePaths.length;i++) {
+                                            const divider = document.createElement('div')
+                                            divider.className = 'col'
+                                            const li = document.createElement('img');
+                                            li.className = 'materialboxed'
+                                            li.width = '200'
+                                            li.src = 'resources/'+__extractFilename(filePaths[i]);
+                                            li.id = 'thumb_backdropname'
+                                            //const btn = document.createElement('div')
+                                            divider.appendChild(li)
+                                            ul.innerHTML = '';
+                                            ul.appendChild(divider)
+                                            M.Materialbox.init(li, {});
+                                        }
+                                      }
+                                  })
+                          ">Replace Backdrop</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col s12 m6">
+                  <div id="" class="card indigo darken-4">
+                      <div class="card-content white-text">
+                          <span class="card-title">Icon</span>
+                          <ls id="thumb-icon">
+                            <div class="col">
+                              <div class="material-placeholder">
+                                <img id="thumb_iconname" class="materialboxed" width="200" src="../resources/thumb_icon.png">
+                              </div>
+                            </div>
+                          </ls>
+                          <br>
+                          <span class="white-text">Icon must be 392x162 and must be in the resources/ directory.</span>
+                      </div>
+                      <div class="card-action indigo darken-4">
+                              <a href="#transi" onclick="
+                              var {ipcRenderer} = require('electron');
+                              const ul = document.querySelector('#thumb-icon');
+                              require('electron').remote.dialog.showOpenDialog(
+                                  {
+                                      title:'Select Icon: (MUST BE IN RESOURCES/)',
+                                      defaultPath:__dirname,
+                                      filters:[
+                                          { name: 'Portable Network Graphics', extensions: ['png'] }
+                                      ],
+                                      properties: ['openFile']
+                                  },function(filePaths) {
+                                      if(filePaths) {
+                                          for(var i=0;i < filePaths.length;i++) {
+                                              const divider = document.createElement('div')
+                                              divider.className = 'col'
+                                              const li = document.createElement('img');
+                                              li.className = 'materialboxed'
+                                              li.width = '200'
+                                              li.src = 'resources/'+__extractFilename(filePaths[i]);
+                                              li.id = 'thumb_iconname'
+                                              //const btn = document.createElement('div')
+                                              divider.appendChild(li)
+                                              ul.innerHTML = '';
+                                              ul.appendChild(divider)
+                                              M.Materialbox.init(li, {});
+                                          }
+                                      }
+                                  })
+                          ">Replace Icon</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="row center">
+                  <a id="setuprefer1" href="#" id="download-button" class="btn-large waves-effect waves-light indigo darken-4" onclick="
+                    M.toast({html: 'Rendering thumbnail...'})
+                    var Jimp = require('jimp');
+                    Jimp.read('resources/'+__extractFilename(document.getElementById('thumb_backdropname').src)).then(image => {
+                      image.resize(1280, 720) // resize
+                      Jimp.read('resources/thumb_safearea.png').then(safe => {
+                        if(__thumbsafeareas == true)
+                          image.composite(safe,0,0)
+                        Jimp.read('resources/'+__extractFilename(document.getElementById('thumb_iconname').src)).then(icon => {
+                          if(__thumbicon == true)
+                            image.composite(icon,138,115)
+                          Jimp.loadFont('resources/fnt/ArialRoundedMTBold-165.fnt').then(font1 => {
+                            console.log(font1)
+                            image.print(
+                              font1,
+                              140,
+                              465,
+                              {
+                                text: document.getElementById('thumbbody').value,
+                                alignmentX: Jimp.HORIZONTAL_ALIGN_LEFT,
+                                alignmentY: Jimp.VERTICAL_ALIGN_TOP
+                              },
+                              1280,
+                              720
+                            )
+                            image.write('resources/rendered/thumbnail.png'); // save
+                            M.toast({html: 'Writing to resources/rendered/thumbnail.png...'})
+                            setTimeout(function(){M.toast({html: 'Done creating thumbnail!'})},10000)
+                          }).catch(err => {
+                            M.toast({html: 'An error has occured!'})
+                            console.error(err);
+                          });
+                        }).catch(err => {
+                          M.toast({html: 'An error has occured!'})
+                          console.error(err);
+                        });
+                      }).catch(err => {
+                        M.toast({html: 'An error has occured!'})
+                        console.error(err);
+                      });
+                    }).catch(err => {
+                      M.toast({html: 'An error has occured!'})
+                      console.error(err);
+                    });
+                  ">Render</a>
+              </div>
+          </div>
+      </div>
+    </div>
+  <div id="section3">
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container center">
+        <br><br>
+        <h1 class="header center text">GNN Asset Creator v1.0</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">Created by Carlos Brown using <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a></h5>
+        </div>
+        <div class="row center">
+          <a href="mailto:hocdrive@gmail.com?subject=Issue: No subject" id="download-button" class="btn-large waves-effect waves-light indigo darken-4">Submit Issue (Non-School Email)</a>
+        </div>
+        <br><br>
+        <a id="logo-container" href="#" class="brand-logo">
+          <img class="responsive-img" width="400" src="img/hqlogo.png">
+        </a>
+        <br><br>
+      </div>
+    </div>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script>M.AutoInit();</script>
+  </body>
+</html>
