@@ -10,10 +10,10 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <script>
-    var __safeareas = false
-    var __icon = true
-    var __thumbsafeareas = false
-    var __thumbicon = true
+    var __safeareas = true
+    var __icon = false
+    var __thumbsafeareas = true
+    var __thumbicon = false
     function __extractFilename(path) {
       if (path.substr(0, 12) == "C:\\fakepath\\")
         return path.substr(12); // modern browser
@@ -118,9 +118,9 @@
                                             properties: ['openDirectory'] 
                                         })
                                     if(filePaths) {
-                                        document.querySelector('#outro').value=filePaths[0]
+                                        document.querySelector('#outro').value=filePaths[1]
                                         var {ipcRenderer} = require('electron')
-                                        ipcRenderer.send('outro:set',filePaths[0]);
+                                        ipcRenderer.send('outro:set',filePaths[1]);
                                     }
                                 ">
                                 <span>Output</span>
